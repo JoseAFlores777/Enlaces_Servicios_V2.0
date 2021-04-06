@@ -1,1 +1,234 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* .contenedor-card{
+  height: 100% !important;
+  background-image: url('fondo-01.png') !important;
+  background-size: cover !important;
+background-repeat: no-repeat !important;
+} */
+
+
+html,
+body,
+.container-fluid {
+  height: 100vh ;
+  background-image: url('/assets/fondo-01.png') !important;
+  background-size: cover !important;
+}
+
+.container-fluid{
+  z-index: 1;
+}
+
+
+.card{
+    width: 18rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 10px 21px 3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 21px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 21px 3px rgba(0,0,0,0.75);
+}
+
+#Instruccion{
+  font-size: small;
+  text-align: center;
+}
+
+.Logo{
+  width: 6%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    display: block;
+}
+
+.card-body{
+  padding-top: 0%;
+}
+
+#En_vivo{
+  text-align: right;
+  font-size: 80%;
+  color: red;
+  animation-duration: 3s;
+  animation-name: palpitar;
+  animation-iteration-count: infinite;
+  transition: 300ms all;
+}
+
+@keyframes palpitar {
+0%{opacity: 0%;}
+
+50%{
+  opacity: 100%;
+
+}
+100%{
+
+  opacity: 0%;
+}
+}
+    
+.msj-TransmOFF{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.versiculo{
+  padding-left: 5%;
+  padding-right: 5%;
+font-size: small;
+line-height: 18px;
+margin-bottom: 6%;
+color: rgba(90, 90, 90, 0.8)
+}
+
+.msj-N-live{
+  padding-left: 2%;
+  padding-right: 2%;
+  font-size: 20%px;
+  
+}
+
+.redes{
+  
+  font-size: 300%;
+}
+
+.youtube{
+  color:rgb(161, 161, 161);
+  margin-left: 5%;
+  transition: 300ms all;
+}
+
+.youtube:hover{
+  color: red;
+  font-size: 110%;
+  margin-left: 5%;
+}
+
+
+.facebook{
+  color:rgb(161, 161, 161);
+  margin-right: 5%;
+  transition: 300ms all;
+}
+.facebook:hover{
+  
+  font-size: 110%;
+  margin-left: 5%;
+}
+
+.oracion{
+  font-size: 80%;
+  margin-bottom: 5%;
+}
+
+.footer{
+  z-index: 0;
+  text-align: center;
+  background-color: white;
+  font-size: 80%;
+  position:fixed;
+  bottom:0;
+  clear:both;
+  width:100%;
+  
+  /* height:100px; */
+}
+.footer text{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+/* #img{
+  margin-left: auto;
+    margin-right: auto;
+  width: 100%;
+}
+
+/* @media (min-width: 576px) { ... }
+
+
+@media (min-width: 768px) { ... }
+
+
+@media (min-width: 992px) { ... }
+
+
+@media (min-width: 1200px) { } */ 
+
+@media (min-width: 280px) {  
+
+  
+  .Logo{
+    width: 10%
+  } 
+.card{
+  width: 80%;
+  margin-top: 15px;
+}
+
+
+
+} 
+@media (min-width: 400px) {  
+
+.card{
+  width: 70%;
+  margin-top: 30px;
+}
+} 
+@media (min-width: 500px) {  
+
+.card{
+  width: 50%
+} 
+} 
+@media (min-width: 720px) {  
+
+.card{
+  width: 40%
+} 
+} 
+@media (min-width: 768px) {  
+  .Logo{
+  width: 10%
+} 
+.card{
+  width: 44%
+} 
+} 
+@media (min-width: 941px) {  
+  .Logo{
+  width: 10%
+} 
+.card{
+  width: 30%
+} 
+} 
+@media (min-width: 1137px) {  
+  .Logo{
+  width: 6%
+} 
+.card{
+  width: 25%
+} 
+} 
+
+@media (min-width: 1200px) {  
+  .Logo{
+  width: 5%
+} } 
+
+@media (min-width: 1400px) { 
+  .Logo{
+    width: 5%
+  }
+}
+
