@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnlacesService } from '../services/enlaces.service';
+import { Enlaces } from '../interfaces/enlaces.interface';
 
 @Component({
   selector: 'app-card-envivo',
@@ -13,16 +14,18 @@ export class CardEnvivoComponent  {
 
   // private url: string = this.resultados.length.toString();
 
-  get resultados() {
-    return this.enlacesService.resultados.length;
+  get resultados(): Enlaces {
+    
+    return this.enlacesService.resultados;
   }
 
   
   constructor(private enlacesService: EnlacesService) {
-    console.log(this.enlacesService)
-    console.log(this.resultados)
+    //  console.log(this.enlacesService);
+    
     // this.url=this.resultados[0].toString();
     // console.log(this.url)
+
   }
 
 

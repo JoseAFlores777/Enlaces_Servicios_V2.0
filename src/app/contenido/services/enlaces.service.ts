@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Enlaces } from '../interfaces/enlaces.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,69 +26,68 @@ export class EnlacesService {
   { nombre: "Club Bíblico", hora: "0:00 PM" }
 ];
   
+  
+  
+  private _resultados: Enlaces = {
+    codServicio : '',
+    url_img_servicio : '',
+    url_img_Espera : '',
+    url_peticiones : '',
+    url_f_iglesia : '',
+    url_f_Youtube : '',
+    url_f_conexion : '',
+    url_f_Zoom : '',
+    url_f_Encuesta1 : '',
+    url_f_Encuesta2 : '',
+    url_f_Encuesta3: '',
+    Hora:'',
+    NombreServicio:'',
 
-  public enlaces: string[] = []
+  };
   
-    public url_f_iglesia:string ='';
-    public codServicio:string ='';
-    public url_f_Youtube:string ='';
-    public url_f_conexion:string ='';
-    public url_f_Zoom:string ='';
-    public url_img_servicio:string ='';
-    public url_img_Espera:string ='';
-    public url_peticiones:string ='';
-    public url_f_Encuesta1:string ='';
-    public url_f_Encuesta2:string ='';
-  public url_f_Encuesta3: string = '';
   
-    public resultados: string[] = [];
+  
+  get resultados():Enlaces {
+    return this._resultados;
+  }
 
   constructor(private http: HttpClient) {    
     this.buscarEnlaces()
+   
   }
 
   buscarEnlaces() {
     this.http.get(`${this.HojaUrl}${this.idSheets}/values/${this.values}?access_token=${this.apiKey}&key=${this.apiKey}`)
     .subscribe((valores:any) => {
+
+      this._resultados.codServicio =this.getServicio(valores.values[0][0], this.servicios);
+      this._resultados.Hora = this.servicios[parseInt(this._resultados.codServicio)].hora;
+      this._resultados.NombreServicio = this.servicios[parseInt(this._resultados.codServicio)].nombre;
+      this._resultados.url_f_iglesia = `${valores.values[0][1]}`;
+      this._resultados.url_f_Youtube = `${valores.values[0][2]}`;
+      this._resultados.url_f_conexion = `${valores.values[0][3]}`;
+      this._resultados.url_f_Zoom = `${valores.values[0][4]}`;
+      this._resultados.url_img_servicio = `https://drive.google.com/uc?id=${this.ExtraerID(valores.values[0][5])}&export=download`;
+      this._resultados.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID(valores.values[0][7])}&export=download`;
+      this._resultados.url_peticiones = `${valores.values[0][6]}`;
+      this._resultados.url_f_Encuesta1 = `${valores.values[0][8]}`;
+      this._resultados.url_f_Encuesta2 = `${valores.values[0][9]}`;
+      this._resultados.url_f_Encuesta3 = `${valores.values[0][10]}`;
       
-      this.enlaces= valores.values;
-      // console.table(this.enlaces);
-      this.codServicio = this.getServicio(this.enlaces[0][0], this.servicios);
-      this.url_f_iglesia = `${this.enlaces[0][1]}`;
-      this.url_f_Youtube = `${this.enlaces[0][2]}`;
-      this.url_f_conexion = `${this.enlaces[0][3]}`;
-      this.url_f_Zoom = `${this.enlaces[0][4]}`;
-      this.url_img_servicio = `https://drive.google.com/uc?id=${this.ExtraerID(this.enlaces[0][5])}&export=download`;
-      this.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID(this.enlaces[0][7])}&export=download`;
-      this.url_peticiones = `${this.enlaces[0][6]}`;
-      this.url_f_Encuesta1 = `${this.enlaces[0][8]}`;
-      this.url_f_Encuesta2 = `${this.enlaces[0][9]}`;
-      this.url_f_Encuesta3 = `${this.enlaces[0][10]}`;
-      this.resultados.push(this.codServicio)
-      this.resultados.push(this.url_f_iglesia)
-      this.resultados.push(this.url_f_Youtube)
-      this.resultados.push(this.url_f_conexion)
-      this.resultados.push(this.url_f_Zoom)
-      this.resultados.push(this.url_img_servicio)
-      this.resultados.push(this.url_img_Espera)
-      this.resultados.push(this.url_peticiones)
-      this.resultados.push(this.url_f_Encuesta1)
-      this.resultados.push(this.url_f_Encuesta2)
-      this.resultados.push(this.url_f_Encuesta3)
+
     });
     
   }
 
   
 
-  get url_f_Encuesta11() {
-    return this.url_f_Encuesta1
-  }
+
   
 
    getServicio(Nombre_Servicio:string, servicios:any):any {
     for (let index = 0; index < servicios.length; index++) {
       if (Nombre_Servicio == servicios[index]['nombre']) {
+        
         return index;
       }
     }

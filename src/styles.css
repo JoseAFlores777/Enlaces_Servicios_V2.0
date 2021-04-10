@@ -17,6 +17,7 @@ body,
   background-size: cover !important;
 }
 
+
 .container-fluid{
   z-index: 1;
 }
@@ -135,7 +136,7 @@ color: rgba(90, 90, 90, 0.8)
   text-align: center;
   background-color: white;
   font-size: 80%;
-  position:fixed;
+  /*position:fixed;*/
   bottom:0;
   clear:both;
   width:100%;
@@ -176,7 +177,13 @@ color: rgba(90, 90, 90, 0.8)
 
 
 
-} 
+}
+@media (min-height: 750px) {  
+
+.footer{
+ position:fixed;
+}
+}
 @media (min-width: 400px) {  
 
 .card{
