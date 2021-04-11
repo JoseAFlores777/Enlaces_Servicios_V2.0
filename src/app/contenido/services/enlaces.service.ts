@@ -1,6 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Enlaces } from '../interfaces/enlaces.interface';
+
+  
 
 @Injectable({
   providedIn: 'root'
@@ -79,10 +82,7 @@ export class EnlacesService {
     
   }
 
-  
 
-
-  
 
    getServicio(Nombre_Servicio:string, servicios:any):any {
     for (let index = 0; index < servicios.length; index++) {
@@ -102,4 +102,9 @@ export class EnlacesService {
 }
 
 
+  
+
+  
+  
+  
 }

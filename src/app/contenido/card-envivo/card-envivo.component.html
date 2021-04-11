@@ -3,7 +3,7 @@
 
     <div id="btns" class="card-body">
         <!-- Cuando hay Transmision -->
-      <div *ngIf="(!(resultados.url_f_iglesia == ''))||(!(resultados.url_f_Youtube == ''))||(!(resultados.url_f_conexion == ''))||(!(resultados.url_f_Zoom == '')); else TransmOFF" class="Transmision">
+      <div class="Transmision">
         <div class="row">
           <div id="En_vivo"><i class="bi bi-broadcast"></i> En Vivo</div>
           <h5 id="servicio" class="card-title ">{{resultados.NombreServicio}}</h5>
@@ -24,26 +24,7 @@
           <a *ngIf="!(resultados.url_f_Zoom == '')" id="url_f_Zoom" href="{{resultados.url_f_Zoom}}" class="btn btn-primary w-100 mb-1">Zoom</a><br>
       </div>
       
-        <!-- Cuando No Hay Transmision -->
-        <ng-template #TransmOFF>
-   
-          <div class="msj-TransmOFF">
-            <div class="versiculo"><q>Yo me alegré con los que me decían: A la casa de Jehová iremos.</q> <br>Salmos 122:1</div>
-            <div class="msj-N-live"><strong></strong>, No Hay Transmisiones en Vivo, <br> Visite
-              nuestras Redes sociales</div>
-            <div class="redes"><a class="facebook" href="https://www.facebook.com/ibcunafamiliaconamor/" target="_blank"><i
-                  class="fab fa-facebook"></i></a><a class="youtube" href="https://youtube.com/channel/UCXrNOwQkYBa-r5XDE33y8CA"
-                target="_blank"><i class="fab fa-youtube"></i></a></div>
-            <div class="oracion">
-              <p>
-          
-          
-            </div>
-            <p><a href="{{resultados.url_peticiones}}">Quieres que Oremos Por ti haz clic</a></p>
-            <a  id="url_f_Encuesta1" href="{{resultados.url_f_Encuesta1}}"   class="btn btn-primary w-100 mb-1">Llenar Encuesta</a>
-          </div>
-       
-        </ng-template>
+
         </div>
          
 
