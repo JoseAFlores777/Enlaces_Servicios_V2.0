@@ -160,7 +160,7 @@ CortarURL(arg0: string) {
   confirmUpdate() {
     Swal.fire({
       title: '¿Quieres Modificar Tus Datos?',
-      html:'<p style="font-family:arial,helvetica,sans-serif;"><strong>¡Recuerda!</strong>, los datos almacenados aquí apareceran en los futuros formularios de la iglesia</p>',
+      html:'<p style="font-family:arial,helvetica,sans-serif;"><strong>¡Recuerda!</strong>, los datos almacenados aquí aparecerán en los futuros formularios de la iglesia</p>',
       
       showCancelButton: true,
       showCloseButton: true,
@@ -261,7 +261,7 @@ ModificarDatos() {
           icon: 'success',
           title: this.Datos.Nombres + ', Se han Guardado sus Datos',
           showConfirmButton: false,
-          timer: 10
+          timer: 3000
         })
 
 
@@ -325,7 +325,7 @@ PedirDatos() {
           icon: 'success',
           title: this.Datos.Nombres + ', Se han Guardado sus Datos',
           showConfirmButton: false,
-          timer: 10
+          timer: 3000
         })
 
 

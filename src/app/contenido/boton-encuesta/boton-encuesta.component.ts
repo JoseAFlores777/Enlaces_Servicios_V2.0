@@ -27,7 +27,7 @@ export class BotonEncuestaComponent  {
     }).queue([
       {
         title: 'Paso 1',
-        text: 'Haz Clic en el Botón "Llenar Encuesta"',
+        html: 'Haz Clic en el Botón <strong>"Llenar Encuesta"</strong>',
         imageUrl: './assets/Paso1.png',
         imageWidth: 400,
         imageHeight: 200,
@@ -35,7 +35,7 @@ export class BotonEncuestaComponent  {
       },
       {
         title: 'Paso 2',
-        text: 'Haz Clic en No',
+        html: 'Haz Clic en <strong>"No"</strong>',
         imageUrl: './assets/Paso2.png',
         imageWidth: 400,
         imageHeight: 200,
@@ -43,7 +43,7 @@ export class BotonEncuestaComponent  {
       },
       {
         title: 'Paso 3',
-        text: 'LLena el formulario con los datos de tu familiar o amigo',
+        html: 'Llena el formulario con los datos de tu familiar o amigo',
         imageUrl: './assets/Paso3.png',
         imageWidth: 400,
         imageHeight: 200,

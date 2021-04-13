@@ -54,6 +54,7 @@ body,
 }
 
 #En_vivo{
+  margin-top: 10px;
   text-align: right;
   font-size: 80%;
   color: red;
@@ -178,7 +179,7 @@ color: rgba(90, 90, 90, 0.8)
 
 
 }
-@media (min-height: 750px) {  
+@media (min-height: 480px) {  
 
 .footer{
  position:fixed;
