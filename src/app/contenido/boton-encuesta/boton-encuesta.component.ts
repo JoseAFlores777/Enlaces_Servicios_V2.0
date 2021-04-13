@@ -30,7 +30,7 @@ export class BotonEncuestaComponent  {
         html: 'Haz Clic en el Botón <strong>"Llenar Encuesta"</strong>',
         imageUrl: './assets/Paso1.png',
         imageWidth: 400,
-        imageHeight: 200,
+        
         imageAlt: 'Paso 1',
       },
       {
@@ -38,7 +38,7 @@ export class BotonEncuestaComponent  {
         html: 'Haz Clic en <strong>"No"</strong>',
         imageUrl: './assets/Paso2.png',
         imageWidth: 400,
-        imageHeight: 200,
+        
         imageAlt: 'Paso 2',
       },
       {
@@ -46,7 +46,7 @@ export class BotonEncuestaComponent  {
         html: 'Llena el formulario con los datos de tu familiar o amigo',
         imageUrl: './assets/Paso3.png',
         imageWidth: 400,
-        imageHeight: 200,
+        
         imageAlt: 'Paso 3',
         showConfirmButton:false
       },

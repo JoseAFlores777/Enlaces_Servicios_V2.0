@@ -17,7 +17,7 @@ export interface Enlaces {
 export interface Datos {
     Nombres: string,
     Apellidos: string,
-    Celular: string,
+    Cel: string,
     Ruta: string,
     Transporte: string,
     EncuestaVacia:string,

@@ -68,7 +68,7 @@ export class EnlacesService {
       }, 15000);
 
     if (!localStorage.getItem('Datos')) {
-      this.Datos = { Nombres: "", Apellidos: "", Celular: "", Ruta: "", Transporte: "",EncuestaVacia:"",AvisoUpdate:"" };
+      this.Datos = { Nombres: "", Apellidos: "", Cel: "", Ruta: "", Transporte: "",EncuestaVacia:"",AvisoUpdate:"" };
     } else {
       
       this.Datos = JSON.parse(localStorage.getItem('Datos')!);
@@ -121,7 +121,7 @@ export class EnlacesService {
           
           let ids: string[] = this.ExtraerIDs(url_f_Encuesta1);
     
-          url_f_Encuesta1 = `${urlCortado}&entry.${ids[0]}=${this.capitalize(this.Datos.Nombres.trim()).replace(/ /g, "+")}+${this.capitalize(this.Datos.Apellidos.trim()).replace(/ /g, "+")}&entry.${ids[1]}=${this.Datos.Celular.trim()}&entry.${ids[2]}=${this.capitalize(this.Datos.Ruta.trim()).replace(/ /g, "+")}&entry.${ids[3]}=${this.Datos.Transporte.trim().replace(/ /g, "+")}`;
+          url_f_Encuesta1 = `${urlCortado}&entry.${ids[0]}=${this.capitalize(this.Datos.Nombres.trim()).replace(/ /g, "+")}+${this.capitalize(this.Datos.Apellidos.trim()).replace(/ /g, "+")}&entry.${ids[1]}=${this.Datos.Cel.trim()}&entry.${ids[2]}=${this.capitalize(this.Datos.Ruta.trim()).replace(/ /g, "+")}&entry.${ids[3]}=${this.Datos.Transporte.trim().replace(/ /g, "+")}`;
         } 
       } else {
         url_f_Encuesta1 = null;
@@ -245,7 +245,7 @@ ModificarDatos() {
           'Agrega tus datos para optimizar el llenado de los formularios' +
           `<input value="${this.Datos.Nombres}" type="text" id="swal-input1" placeholder="Escribe tu nombre" class="swal2-input">` +
           `<input value="${this.Datos.Apellidos}" type="text" id="swal-input2" placeholder="Escribe tu apellido" class="swal2-input">` +
-          `<input value="${this.Datos.Celular}" type="text" id="swal-input3" placeholder="Celular" class="swal2-input">` +
+          `<input value="${this.Datos.Cel}" type="text" id="swal-input3" placeholder="Celular" class="swal2-input">` +
           `<input value="${this.Datos.Ruta}" type="text" id="swal-input4" placeholder="Escribe la ruta o colonia donde vive" class="swal2-input form-control" list="datalistOptions">` +
           '<datalist id="datalistOptions">'+
           '<option value="Alrededor de la Iglesia">'+
@@ -298,7 +298,7 @@ ModificarDatos() {
       if (formValues) {
         this.Datos.Nombres = this.capitalize(((document.getElementById('swal-input1')as HTMLInputElement).value).trim());
         this.Datos.Apellidos = this.capitalize(((document.getElementById('swal-input2')as HTMLInputElement).value).trim());
-        this.Datos.Celular = (document.getElementById('swal-input3')as HTMLInputElement).value;
+        this.Datos.Cel = (document.getElementById('swal-input3')as HTMLInputElement).value;
         this.Datos.Ruta = this.capitalize(((document.getElementById('swal-input4')as HTMLInputElement).value).trim());
         this.Datos.Transporte = (document.getElementById('swal-input5')as HTMLInputElement).value;
         localStorage.setItem('Datos', JSON.stringify(this.Datos));
@@ -384,7 +384,7 @@ PedirDatos() {
       if (formValues) {
         this.Datos.Nombres = (document.getElementById('swal-input1')as HTMLInputElement).value;
         this.Datos.Apellidos = (document.getElementById('swal-input2')as HTMLInputElement).value;
-        this.Datos.Celular = (document.getElementById('swal-input3')as HTMLInputElement).value;
+        this.Datos.Cel = (document.getElementById('swal-input3')as HTMLInputElement).value;
         this.Datos.Ruta = (document.getElementById('swal-input4')as HTMLInputElement).value;
         this.Datos.Transporte = (document.getElementById('swal-input5')as HTMLInputElement).value;
         localStorage.setItem('Datos', JSON.stringify(this.Datos));
