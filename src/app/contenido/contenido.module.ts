@@ -4,6 +4,8 @@ import { CardEnvivoComponent } from './card-envivo/card-envivo.component';
 import { CardComponent } from './card/card.component';
 import { CardNoEnVivoComponent } from './card-no-en-vivo/card-no-en-vivo.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FooterComponent } from './footer/footer.component';
+import { BotonEncuestaComponent } from './boton-encuesta/boton-encuesta.component';
 
 
 
@@ -11,10 +13,13 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   declarations: [
     CardEnvivoComponent,
     CardComponent,
-    CardNoEnVivoComponent
+    CardNoEnVivoComponent,
+    FooterComponent,
+    BotonEncuestaComponent
   ],
   exports: [
-    CardComponent
+    CardComponent,
+    FooterComponent
   ]
   ,
   imports: [

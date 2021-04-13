@@ -13,3 +13,15 @@ export interface Enlaces {
     Hora: string,
     NombreServicio:string,
 }
+
+export interface Datos {
+    Nombres: string,
+    Apellidos: string,
+    Celular: string,
+    Ruta: string,
+    Transporte: string,
+    EncuestaVacia:string,
+    AvisoUpdate:string,
+    
+}
+
