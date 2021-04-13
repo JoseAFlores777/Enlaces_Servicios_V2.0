@@ -63,7 +63,9 @@ export class EnlacesService {
 
   constructor(private http: HttpClient) {    
     this.buscarEnlaces();
-
+    setInterval(() => {
+      this.buscarEnlaces(); 
+      }, 15000);
 
     if (!localStorage.getItem('Datos')) {
       this.Datos = { Nombres: "", Apellidos: "", Celular: "", Ruta: "", Transporte: "",EncuestaVacia:"",AvisoUpdate:"" };
@@ -98,7 +100,7 @@ export class EnlacesService {
       this._resultados.url_img_servicio = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[0][5])}&export=download`;
       this._resultados.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[0][7])}&export=download`;
       this._resultados.url_peticiones = `${valores.values[0][6]}`;
-      this._resultados.url_f_Encuesta1 = this.FillForm(valores.values[0][13]);
+      this._resultados.url_f_Encuesta1 = this.FillForm(valores.values[0][8]);
       // this._resultados.url_f_Encuesta1 = valores.values[0][13];
       // console.log(this._resultados.url_f_Encuesta1)
       // console.log( valores.values[0][13])

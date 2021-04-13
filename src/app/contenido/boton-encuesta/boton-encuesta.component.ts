@@ -48,6 +48,7 @@ export class BotonEncuestaComponent  {
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Paso 3',
+        showConfirmButton:false
       },
 
     ])
