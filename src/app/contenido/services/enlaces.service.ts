@@ -1,4 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Enlaces, Datos } from '../interfaces/enlaces.interface';
@@ -12,6 +13,7 @@ export class EnlacesService {
 
   Datos: Datos;
   
+  private Bandera: boolean=false;
 
       // id de la hoja de calculo
   private idSheets: string = '1EX5gZVdPyvSiV5ZGnJ0RGfxRDveRZntLYjc8ek6CuBU';
@@ -60,13 +62,21 @@ export class EnlacesService {
   }
 
   constructor(private http: HttpClient) {    
-    this.buscarEnlaces()
+    this.buscarEnlaces();
+
 
     if (!localStorage.getItem('Datos')) {
       this.Datos = { Nombres: "", Apellidos: "", Celular: "", Ruta: "", Transporte: "",EncuestaVacia:"",AvisoUpdate:"" };
     } else {
       
       this.Datos = JSON.parse(localStorage.getItem('Datos')!);
+     
+        this.Datos.Nombres = this.capitalize(this.Datos.Nombres.trim())
+        this.Datos.Apellidos = this.capitalize(this.Datos.Apellidos.trim())
+        this.Datos.Ruta = this.capitalize(this.Datos.Ruta.trim())
+        localStorage.setItem('Datos',JSON.stringify(this.Datos))
+        console.log('Se actualizo');
+      
       //this.resultados.url_f_Encuesta1 = `${arreglo[0][8]}&entry.${IdEntryNombre}=${Datos.Nombres.capitalize().replace(/ /g, "+")}+${Datos.Apellidos.trim().capitalize().replace(/ /g, "+")}&entry.${IdEntryCelular}=${Datos.Cel.trim()}&entry.${IdEntryRuta}=${Datos.Ruta.trim().capitalize().replace(/ /g, "+")}&entry.${IdEntryTransporte}=${Datos.Transporte.trim().replace(/ /g, "+")}`;
   }
    
@@ -89,6 +99,9 @@ export class EnlacesService {
       this._resultados.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[0][7])}&export=download`;
       this._resultados.url_peticiones = `${valores.values[0][6]}`;
       this._resultados.url_f_Encuesta1 = this.FillForm(valores.values[0][13]);
+      // this._resultados.url_f_Encuesta1 = valores.values[0][13];
+      // console.log(this._resultados.url_f_Encuesta1)
+      // console.log( valores.values[0][13])
       this._resultados.url_f_Encuesta2 = `${valores.values[0][9]}`;
       this._resultados.url_f_Encuesta3 = `${valores.values[0][10]}`;
       
@@ -97,15 +110,24 @@ export class EnlacesService {
     
   }
 
-  FillForm(url_f_Encuesta1: string) {
-   
-    var urlCortado = url_f_Encuesta1.split("&entry.")[0];
-    if (localStorage.getItem('Datos')) {
-      
-      let ids: string[] = this.ExtraerIDs(url_f_Encuesta1);
+  FillForm(url_f_Encuesta1: any) {
+    if (url_f_Encuesta1 != undefined) {
+      if (url_f_Encuesta1.replace(/ /g, "").length >0) {
+ 
+        var urlCortado = url_f_Encuesta1.split("&entry.")[0];
+        if (localStorage.getItem('Datos')) {
+          
+          let ids: string[] = this.ExtraerIDs(url_f_Encuesta1);
+    
+          url_f_Encuesta1 = `${urlCortado}&entry.${ids[0]}=${this.capitalize(this.Datos.Nombres.trim()).replace(/ /g, "+")}+${this.capitalize(this.Datos.Apellidos.trim()).replace(/ /g, "+")}&entry.${ids[1]}=${this.Datos.Celular.trim()}&entry.${ids[2]}=${this.capitalize(this.Datos.Ruta.trim()).replace(/ /g, "+")}&entry.${ids[3]}=${this.Datos.Transporte.trim().replace(/ /g, "+")}`;
+        } 
+      } else {
+        url_f_Encuesta1 = null;
+      }
 
-      url_f_Encuesta1 = `${urlCortado}&entry.${ids[0]}=${this.capitalize(this.Datos.Nombres.trim()).replace(/ /g, "+")}+${this.capitalize(this.Datos.Apellidos.trim()).replace(/ /g, "+")}&entry.${ids[1]}=${this.Datos.Celular.trim()}&entry.${ids[2]}=${this.capitalize(this.Datos.Ruta.trim()).replace(/ /g, "+")}&entry.${ids[3]}=${this.Datos.Transporte.trim().replace(/ /g, "+")}`;
-    } 
+     
+    }
+    
       return url_f_Encuesta1;
     
   }
@@ -213,7 +235,7 @@ CortarURL(arg0: string) {
   
 ModificarDatos() {
   (async () => {
-    this.resultados.url_img_Espera = "https://image.freepik.com/foto-gratis/cristiano-cristianismo-fondo-religion_1421-12.jpg";
+    
     
       const { value: formValues } = await Swal.fire({
         title: 'Editar Datos Generales',
@@ -222,7 +244,29 @@ ModificarDatos() {
           `<input value="${this.Datos.Nombres}" type="text" id="swal-input1" placeholder="Escribe tu nombre" class="swal2-input">` +
           `<input value="${this.Datos.Apellidos}" type="text" id="swal-input2" placeholder="Escribe tu apellido" class="swal2-input">` +
           `<input value="${this.Datos.Celular}" type="text" id="swal-input3" placeholder="Celular" class="swal2-input">` +
-          `<input value="${this.Datos.Ruta}" type="text" id="swal-input4" placeholder="Escribe la ruta o colonia donde vive" class="swal2-input">` +
+          `<input value="${this.Datos.Ruta}" type="text" id="swal-input4" placeholder="Escribe la ruta o colonia donde vive" class="swal2-input form-control" list="datalistOptions">` +
+          '<datalist id="datalistOptions">'+
+          '<option value="Alrededor de la Iglesia">'+
+          '<option value="San Miguel Abajo">'+
+          '<option value="El reparto">'+
+          '<option value="La Esperanza">'+
+          '<option value="La 28 de Marzo">'+
+          '<option value="Los Girasoles">'+
+          '<option value="La Canaán">'+
+          '<option value="Parcaltagua">'+
+          '<option value="La Fraternidad">'+
+          '<option value="Las Brisas">'+
+          '<option value="La Ley">'+
+          '<option value="El Jazmín">'+
+          '<option value="La 13 de Julio">'+
+          '<option value="La Era">'+
+          '<option value="La Travesía">'+
+          '<option value="La Lomita 1">'+
+          '<option value="La Lomita 2">'+
+          '<option value="La San Francisco ">'+
+          '<option value="El Picachito">'+
+          '<option value="La Izaguirre  ">'+
+          '</datalist>'+
           `<select #swal-input5 type="text" id="swal-input5" class="form-select" aria-label="Default select example"><option value="${this.Datos.Transporte}" selected>${this.Datos.Transporte}</option><option value="Bus de la Iglesia">Bus de la Iglesia</option><option value="A Pie">A Pie</option><option value="Vehículo Personal">Vehículo Personal</option></select>`,
         focusConfirm: false,
         showCancelButton: true,
@@ -250,10 +294,10 @@ ModificarDatos() {
       })
     
       if (formValues) {
-        this.Datos.Nombres = (document.getElementById('swal-input1')as HTMLInputElement).value;
-        this.Datos.Apellidos = (document.getElementById('swal-input2')as HTMLInputElement).value;
+        this.Datos.Nombres = this.capitalize(((document.getElementById('swal-input1')as HTMLInputElement).value).trim());
+        this.Datos.Apellidos = this.capitalize(((document.getElementById('swal-input2')as HTMLInputElement).value).trim());
         this.Datos.Celular = (document.getElementById('swal-input3')as HTMLInputElement).value;
-        this.Datos.Ruta = (document.getElementById('swal-input4')as HTMLInputElement).value;
+        this.Datos.Ruta = this.capitalize(((document.getElementById('swal-input4')as HTMLInputElement).value).trim());
         this.Datos.Transporte = (document.getElementById('swal-input5')as HTMLInputElement).value;
         localStorage.setItem('Datos', JSON.stringify(this.Datos));
         Swal.fire({
@@ -286,7 +330,29 @@ PedirDatos() {
           '<input type="text" id="swal-input1" placeholder="Escribe tu nombre" class="swal2-input">' +
           '<input type="text" id="swal-input2" placeholder="Escribe tu apellido" class="swal2-input">' +
           '<input type="text" id="swal-input3" placeholder="Celular" class="swal2-input">' +
-          '<input type="text" id="swal-input4" placeholder="Escribe la ruta o colonia donde vive" class="swal2-input">' +
+          '<input type="text" id="swal-input4" placeholder="Escribe la ruta o colonia donde vive" class="swal2-input form-control" list="datalistOptions">' +
+          '<datalist id="datalistOptions">'+
+          '<option value="Alrededor de la Iglesia">'+
+          '<option value="San Miguel Abajo">'+
+          '<option value="El reparto">'+
+          '<option value="La Esperanza">'+
+          '<option value="La 28 de Marzo">'+
+          '<option value="Los Girasoles">'+
+          '<option value="La Canaán">'+
+          '<option value="Parcaltagua">'+
+          '<option value="La Fraternidad">'+
+          '<option value="Las Brisas">'+
+          '<option value="La Ley">'+
+          '<option value="El Jazmín">'+
+          '<option value="La 13 de Julio">'+
+          '<option value="La Era">'+
+          '<option value="La Travesía">'+
+          '<option value="La Lomita 1">'+
+          '<option value="La Lomita 2">'+
+          '<option value="La San Francisco ">'+
+          '<option value="El Picachito">'+
+          '<option value="La Izaguirre  ">'+
+          '</datalist>'+
           '<select #swal-input5 type="text" id="swal-input5" class="form-select" aria-label="Default select example"><option value="" selected>Seleccione el Transporte</option><option value="Bus de la Iglesia">Bus de la Iglesia</option><option value="A Pie">A Pie</option><option value="Vehículo Personal">Vehículo Personal</option></select>',
         focusConfirm: false,
         showCancelButton: true,
@@ -349,5 +415,25 @@ sleep (ms:number) {
  }
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -31,7 +31,7 @@
             <a  id="url_f_Zoom" href="{{resultados.url_f_Zoom}}" class="btn btn-primary w-100 mb-1">Zoom</a><br>
           </div>
           
-          <div *ngIf="!(resultados.url_f_Encuesta1 == '')">
+          <div *ngIf="!(resultados.url_f_Encuesta1 == undefined)||!(resultados.url_f_Encuesta1 == null)">
             <app-boton-encuesta></app-boton-encuesta>
           </div>
       </div>
