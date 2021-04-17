@@ -61,7 +61,11 @@ export class EnlacesService {
     return this._resultados;
   }
 
-  constructor(private http: HttpClient) {    
+  constructor(private http: HttpClient) {
+
+    
+
+
     this.buscarEnlaces();
     setInterval(() => {
       this.buscarEnlaces(); 
@@ -81,8 +85,29 @@ export class EnlacesService {
       
       //this.resultados.url_f_Encuesta1 = `${arreglo[0][8]}&entry.${IdEntryNombre}=${Datos.Nombres.capitalize().replace(/ /g, "+")}+${Datos.Apellidos.trim().capitalize().replace(/ /g, "+")}&entry.${IdEntryCelular}=${Datos.Cel.trim()}&entry.${IdEntryRuta}=${Datos.Ruta.trim().capitalize().replace(/ /g, "+")}&entry.${IdEntryTransporte}=${Datos.Transporte.trim().replace(/ /g, "+")}`;
   }
-   
+  this.MostrarModalInfo()
   }
+
+  MostrarModalInfo() {
+    var Hoy = new Date();
+    var fecha = new Date(Hoy.getFullYear(), 4, 18);
+    if (Hoy.getDate() === fecha.getDate()) {
+      Swal.fire({
+        html:
+          '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ensr67y7.json"  background="transparent"  speed="1"  style="position:absolute; width: 80%; "  loop  autoplay></lottie-player>' +
+          `<h3>${this.Datos.Nombres}, celebra con nosotros el <strong>51 Aniversario</strong> de nuestra amada Iglesia</h3><br>` +
+          '<strong>DIOS</strong> HA SIDO FIEL',
+        text: 'Modal with a custom image.',
+        imageUrl: 'assets/anirsary.gif',
+        imageWidth: 600,
+        confirmButtonText:'¡Amén! &#128591',
+        imageAlt: 'Custom image',
+      })
+    }
+
+
+  }
+
 
 
 

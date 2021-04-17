@@ -9,13 +9,15 @@ import { BotonEncuestaComponent } from './boton-encuesta/boton-encuesta.componen
 
 
 
+
 @NgModule({
   declarations: [
     CardEnvivoComponent,
     CardComponent,
     CardNoEnVivoComponent,
     FooterComponent,
-    BotonEncuestaComponent
+    BotonEncuestaComponent,
+    
   ],
   exports: [
     CardComponent,
