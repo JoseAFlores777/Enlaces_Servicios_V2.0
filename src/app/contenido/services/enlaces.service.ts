@@ -98,7 +98,7 @@ export class EnlacesService {
           `<h3>${this.Datos.Nombres}, celebra con nosotros el <strong>51 Aniversario</strong> de nuestra amada Iglesia</h3><br>` +
           '<strong>DIOS</strong> HA SIDO FIEL',
         text: 'Modal with a custom image.',
-        imageUrl: 'assets/anirsary.gif',
+        imageUrl: 'assets/51Aniversario.gif',
         imageWidth: 600,
         confirmButtonText:'¡Amén! &#128591',
         imageAlt: 'Custom image',
