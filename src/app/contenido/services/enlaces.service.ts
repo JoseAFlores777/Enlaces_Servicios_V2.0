@@ -69,7 +69,7 @@ export class EnlacesService {
     this.buscarEnlaces();
     setInterval(() => {
       this.buscarEnlaces(); 
-      }, 15000);
+      }, 30000);
 
     if (!localStorage.getItem('Datos')) {
       this.Datos = { Nombres: "", Apellidos: "", Cel: "", Ruta: "", Transporte: "",EncuestaVacia:"",AvisoUpdate:"" };
@@ -90,8 +90,10 @@ export class EnlacesService {
 
   MostrarModalInfo() {
     var Hoy = new Date();
-    var fecha = new Date(Hoy.getFullYear(), 4, 18);
-    if (Hoy.getDate() === fecha.getDate()) {
+    var fecha = new Date(Hoy.getFullYear(), 3, 18);
+    console.log(Hoy)
+console.log(fecha)
+    if (Hoy === fecha) {
       Swal.fire({
         html:
           '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ensr67y7.json"  background="transparent"  speed="1"  style="position:absolute; width: 80%; "  loop  autoplay></lottie-player>' +
