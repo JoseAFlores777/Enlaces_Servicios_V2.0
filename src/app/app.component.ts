@@ -15,9 +15,9 @@ export class AppComponent {
   constructor(private enlacesService: EnlacesService) {
     
   }
-  MostrarModalInfo(){
-    this.enlacesService.MostrarModalInfo()
-  }
+  // MostrarModalInfo(){
+  //   this.enlacesService.MostrarModalInfo()
+  // }
 
 }
 
