@@ -101,7 +101,7 @@ export class EnlacesService {
     if (Hoy.toString() == fecha.toString()) {
       Swal.fire({
         html:
-          '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ensr67y7.json"  background="transparent"  speed="1"  style="position:absolute; width: 80%; "  loop  autoplay></lottie-player>' +
+          '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ensr67y7.json"  background="transparent"  speed="1"  style="position:absolute; width: 80%; margin-top: -400px;"  loop  autoplay></lottie-player>' +
           `<h3><strong>${this.Datos.Nombres}</strong>, celebra con nosotros el <strong>22 Aniversario</strong> de nuestro querido Pastor</h3><br>` +
           '<strong>DIOS</strong> HA SIDO FIEL',
         text: 'Modal with a custom image.',
