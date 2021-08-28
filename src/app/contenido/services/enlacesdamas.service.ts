@@ -132,7 +132,7 @@ export class EnlacesDamasService {
           this._resultados.url_img_servicio = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[1][5])}&export=download`;
           this._resultados.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[1][7])}&export=download`;
           this._resultados.url_peticiones = `${valores.values[1][6]}`;
-          this._resultados.url_f_Encuesta1 = this.FillForm(valores.values[1][8]);
+          this._resultados.url_f_Encuesta1 = valores.values[1][8];
           // this._resultados.url_f_Encuesta1 = valores.values[0][13];
           // console.log(this._resultados.url_f_Encuesta1)
           // console.log( valores.values[0][13])
