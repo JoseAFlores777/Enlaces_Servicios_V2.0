@@ -1,0 +1,11 @@
+<div *ngIf="(!((resultados.url_f_iglesia == 'undefined')||(resultados.url_f_iglesia==''))||!((resultados.url_f_Youtube == 'undefined')||(resultados.url_f_Youtube==''))||!((resultados.url_f_conexion == 'undefined')||(resultados.url_f_conexion==''))||!((resultados.url_f_Zoom == 'undefined')||(resultados.url_f_Zoom==''))); then TransmON else TransmOFF" ></div>
+
+
+<ng-template #TransmON>
+    <app-card-en-vivo-damas></app-card-en-vivo-damas>
+   
+</ng-template>
+
+<ng-template #TransmOFF>
+    <app-card-no-en-vivo-damas></app-card-no-en-vivo-damas>
+</ng-template>

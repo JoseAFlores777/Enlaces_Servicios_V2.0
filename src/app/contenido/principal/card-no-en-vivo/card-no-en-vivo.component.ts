@@ -1,7 +1,8 @@
 import { Component, ElementRef,ViewChild, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Enlaces } from '../interfaces/enlaces.interface';
-import { EnlacesService } from '../services/enlaces.service';
+import { Enlaces } from '../../interfaces/enlaces.interface';
+import { EnlacesService } from '../../services/enlaces.service';
+
 
 
 

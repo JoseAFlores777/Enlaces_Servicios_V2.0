@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Enlaces } from '../interfaces/enlaces.interface';
-import { EnlacesService } from '../services/enlaces.service';
+import { Enlaces } from '../../interfaces/enlaces.interface';
+import { EnlacesService } from '../../services/enlaces.service';
+
 
 @Component({
   selector: 'app-card',

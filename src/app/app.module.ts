@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ContenidoModule } from './contenido/contenido.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     SweetAlert2Module.forRoot(),
     ContenidoModule,
     NgbModule

@@ -1,0 +1,26 @@
+<div class="card">
+    <img id="img" src="{{resultados.url_img_Espera}}" class="card-img-top " alt="...">
+
+    <div id="btns" class="card-body">
+
+        <div class="msj-TransmOFF">
+<h2>Conferencia para Damas</h2>
+<hr>
+<div class="versiculo"><q>"La mujer sabia edifica su casa;
+    Mas la necia con sus manos la derriba."</q> <br>Proverbios 14:1</div>
+
+<h4 style="margin-bottom: 15px;">Comienza en: </h4>
+<app-timer></app-timer>
+
+<app-boton-inscripcion-damas *ngIf="!(resultados.url_f_Encuesta1 == undefined)||!(resultados.url_f_Encuesta1 == null)"></app-boton-inscripcion-damas>
+        
+        
+        </div>
+
+
+    </div>
+
+
+</div>
+
+  

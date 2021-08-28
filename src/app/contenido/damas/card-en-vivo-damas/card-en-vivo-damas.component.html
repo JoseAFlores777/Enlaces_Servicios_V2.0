@@ -1,0 +1,44 @@
+<div class="card">
+    <img   id="img" src="{{resultados.url_img_servicio}}" class="card-img-top " alt="...">
+
+    <div id="btns" class="card-body">
+        <!-- Cuando hay Transmision -->
+      <div class="Transmision" style="height: fit-content;">
+        <div class="row">
+          <div id="En_vivo"><i class="bi bi-broadcast"></i> En Vivo</div>
+          <h5 id="servicio" class="card-title ">{{resultados.NombreServicio}}</h5>
+        </div>
+        <p class="card-text"> Hora: {{resultados.Hora}} </p>
+        <p id="Instruccion" class="card-text mb-3">Haz Click en cualquiera de los enlaces:</p>
+        
+        <div  *ngIf="!(resultados.url_f_iglesia == '')" >
+          <a id="url_f_iglesia" href="{{resultados.url_f_iglesia}}"
+            class="btn btn-primary w-100 mb-1"> <i class="fab fa-facebook" style="margin-right: 5px; "></i>Página de la
+            Iglesia</a><br>
+        </div>
+        
+        <div *ngIf="!(resultados.url_f_Youtube == '')">
+          <a  id="url_f_Youtube" href="{{resultados.url_f_Youtube}}"
+            class="btn btn-primary w-100 mb-1"><i class="fab fa-youtube" style="margin-right: 5px;"></i>Youtube</a><br>
+        </div>
+        
+        <div *ngIf="!(resultados.url_f_conexion == '')">
+          <a  id="url_f_conexion" href="{{resultados.url_f_conexion}}"
+            class="btn btn-primary w-100 mb-1"><i class="fab fa-facebook" style="margin-right: 5px;"></i>Conexion Juvenil</a><br>
+        </div>
+        
+          <div *ngIf="!(resultados.url_f_Zoom == '')">
+            <a  id="url_f_Zoom" href="{{resultados.url_f_Zoom}}" class="btn btn-primary w-100 mb-1">Zoom</a><br>
+          </div>
+          
+          <div *ngIf="!(resultados.url_f_Encuesta1 == undefined)||!(resultados.url_f_Encuesta1 == null)">
+            <app-boton-inscripcion-damas></app-boton-inscripcion-damas>
+          </div>
+      </div>
+      
+        </div>
+         
+
+    </div>
+
+  

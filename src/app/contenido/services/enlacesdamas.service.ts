@@ -9,7 +9,7 @@ import { Enlaces, Datos } from '../interfaces/enlaces.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class EnlacesService {
+export class EnlacesDamasService {
 
   Datos: Datos;
   
@@ -122,24 +122,24 @@ export class EnlacesService {
     this.http.get(`${this.HojaUrl}${this.idSheets}/values/${this.values}?access_token=${this.apiKey}&key=${this.apiKey}`)
       .subscribe((valores: any) => {
       
-        
 
-      this._resultados.codServicio = this.getServicio(valores.values[0][0], this.servicios);
-      this._resultados.Hora = this.servicios[parseInt(this._resultados.codServicio)].hora;
-      this._resultados.NombreServicio = this.servicios[parseInt(this._resultados.codServicio)].nombre;
-      this._resultados.url_f_iglesia = `${valores.values[0][1]}`;
-      this._resultados.url_f_Youtube = `${valores.values[0][2]}`;
-      this._resultados.url_f_conexion = `${valores.values[0][3]}`;
-      this._resultados.url_f_Zoom = `${valores.values[0][4]}`;
-      this._resultados.url_img_servicio = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[0][5])}&export=download`;
-      this._resultados.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[0][7])}&export=download`;
-      this._resultados.url_peticiones = `${valores.values[0][6]}`;
-      this._resultados.url_f_Encuesta1 = this.FillForm(valores.values[0][8]);
-      // this._resultados.url_f_Encuesta1 = valores.values[0][13];
-      // console.log(this._resultados.url_f_Encuesta1)
-      // console.log( valores.values[0][13])
-      this._resultados.url_f_Encuesta2 = `${valores.values[0][9]}`;
-      this._resultados.url_f_Encuesta3 = `${valores.values[0][10]}`;
+          this._resultados.Hora = "7:00 pm GTM-6";
+          this._resultados.NombreServicio = "Conferencia de Damas";
+          this._resultados.url_f_iglesia = `${valores.values[1][1]}`;
+          this._resultados.url_f_Youtube = `${valores.values[1][2]}`;
+          this._resultados.url_f_conexion = `${valores.values[1][3]}`;
+          this._resultados.url_f_Zoom = `${valores.values[1][4]}`;
+          this._resultados.url_img_servicio = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[1][5])}&export=download`;
+          this._resultados.url_img_Espera = `https://drive.google.com/uc?id=${this.ExtraerID_Img(valores.values[1][7])}&export=download`;
+          this._resultados.url_peticiones = `${valores.values[1][6]}`;
+          this._resultados.url_f_Encuesta1 = this.FillForm(valores.values[1][8]);
+          // this._resultados.url_f_Encuesta1 = valores.values[0][13];
+          // console.log(this._resultados.url_f_Encuesta1)
+          // console.log( valores.values[0][13])
+          this._resultados.url_f_Encuesta2 = `${valores.values[1][9]}`;
+          this._resultados.url_f_Encuesta3 = `${valores.values[1][10]}`;
+
+
       
 
     });

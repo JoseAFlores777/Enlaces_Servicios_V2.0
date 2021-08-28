@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import Swal from 'sweetalert2';
-import { EnlacesService } from '../services/enlaces.service';
+import { EnlacesService } from '../../services/enlaces.service';
 
 
 @Component({
