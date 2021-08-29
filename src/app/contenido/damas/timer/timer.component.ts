@@ -29,7 +29,7 @@ export class TimerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let date = new Date("Fri Sep 03 2021 00:00:00 GMT-0600");
+    let date = new Date("Fri Sep 03 2021 19:00:00 GMT-0600");
 
     this.timerId = countdown(date, (ts) => {
       // this.time = ts;
