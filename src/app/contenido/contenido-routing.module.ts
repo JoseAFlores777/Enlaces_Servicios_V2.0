@@ -13,8 +13,8 @@ const routes: Routes = [
         component:CardComponent
       },
       {
-        path: 'damas',
-        component:CardDamasComponent
+        path: '**',
+        redirectTo: ''
       }
     ]
   }

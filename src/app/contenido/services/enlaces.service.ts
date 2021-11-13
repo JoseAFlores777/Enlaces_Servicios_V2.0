@@ -30,7 +30,10 @@ export class EnlacesService {
   { nombre: "Servicio Dominical", hora: "9:00 AM" },
   { nombre: "Escuela Dominical", hora: "11:00 AM" },
   { nombre: "Servicio Evangelístico", hora: "5:00 PM" },
-  { nombre: "Club Bíblico", hora: "0:00 PM" }
+    { nombre: "Club Bíblico", hora: "0:00 PM" },
+    { nombre: "Enseñanza Bíblica", hora: "7:00 PM" },
+    { nombre: "Capacitación", hora: "2:00 PM" },
+    { nombre: "Matrimonios", hora: "7:00 PM" },
 ];
   
   
